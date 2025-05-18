@@ -17,7 +17,7 @@
     <main>
         <section>
             <article>
-                <form action="logar.php" method="post">
+                <form action="..//backend/logar.php" method="post">
                     <label for="usuario">Nome:</label>
                     <input type="text" name="usuario" id="usuario" required>
 
