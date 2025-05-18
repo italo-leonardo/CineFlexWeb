@@ -40,6 +40,7 @@ $filmes = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <th>Duração</th>
                             <th>Valor Ingresso</th>
                             <th>Qtd. Ingressos</th>
+                            <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -50,6 +51,10 @@ $filmes = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 <td><?= $filme['duracao'] ?> min</td>
                                 <td>R$ <?= number_format($filme['valor_ingresso'], 2, ',', '.') ?></td>
                                 <td><?= $filme['qtd_ingresso'] ?></td>
+                                <td>
+                                    <a href="editar_filme.php?id=<?= $filme['id'] ?>">Editar</a> |
+                                    <a href="../backend/exluir_filme.php?id=<?= $filme['id'] ?>" onclick="return confirm('Tem certeza que deseja excluir este filme?')">Excluir</a>
+                                </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
