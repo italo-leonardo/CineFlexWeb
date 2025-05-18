@@ -21,11 +21,7 @@ $filmes = $stmt->fetchAll(PDO::FETCH_ASSOC);
             unset($_SESSION['mensagem']);
         }
     ?>
-
-    <?php if (isset($_SESSION['mensagem'])): ?>
-        <p style="color:red"><?= $_SESSION['mensagem']; unset($_SESSION['mensagem']); ?></p>
-    <?php endif; ?>
-
+    
     <header>
         <h1>CineFlow</h1>
         <nav>
