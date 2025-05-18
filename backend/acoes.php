@@ -26,7 +26,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
         exit;
     } else {
         $_SESSION['mensagem'] = "Erro ao Cadastra Filme.";
-        header("Location: ../frontend/index.php");
+        header("Location: ../index.php");
         exit;
     }
 

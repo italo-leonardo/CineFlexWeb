@@ -6,6 +6,11 @@
     <title>Login</title>
 </head>
 <body>
+    <?php session_start(); ?>
+    <?php if (isset($_SESSION['mensagem'])): ?>
+        <p style="color:green"><?= $_SESSION['mensagem']; unset($_SESSION['mensagem']); ?></p>
+    <?php endif; ?>
+
     <header>
         <h1>Tela de Login</h1>
     </header>
@@ -22,7 +27,7 @@
                     <input type="submit" value="Entrar">
                     
                 </form>
-                <p>Não tem uma conta? <a href="cadastro.php">Cadastre-se aqui</a></p>
+                <p>Não tem uma conta? <a href="cadastro_usuario.php">Cadastre-se aqui</a></p>
             </article>
         </section>
     </main>

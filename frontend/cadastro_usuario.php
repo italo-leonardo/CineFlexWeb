@@ -12,7 +12,7 @@
     <main>
         <section>
             <article>
-                <form action="salva_usuario.php" method="post">
+                <form action="../backend/salva_usuario.php" method="post">
                     <label for="nome">Nome: </label>
                     <input type="text" name="nome" id="nome" required> <br>
 
