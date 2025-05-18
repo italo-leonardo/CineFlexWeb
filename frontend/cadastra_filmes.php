@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -12,12 +13,12 @@
     <main>
         <section>
             <article>
-                <form action="salvar_filme.php" method="post">
+                <form action="../backend/acoes.php" method="post">
                     <label for="titulo">Titulo: </label>
                     <input type="text" name="titulo" id="titulo" required><br>
 
                     <label for="descricao">Descrição: </label>
-                    <textarea type="text" name="descricao" id="descricao"></textarea><br>
+                    <textarea name="descricao" id="descricao"></textarea><br>
 
                     <label for="duracao">Duração (minutos): </label>
                     <input type="number" name="duracao" id="duracao" min="1" required><br>

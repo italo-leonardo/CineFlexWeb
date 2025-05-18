@@ -1,3 +1,12 @@
+<?php 
+session_start();
+require '../backend/conexao.php';
+
+$sql = "SELECT * FROM filmes";
+$stmt = $conexao->prepare($sql);
+$stmt->execute();
+$filmes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -6,6 +15,12 @@
     <title>CineFlow</title>
 </head>
 <body>
+    <?php
+        if (isset($_SESSION['mensagem'])) {
+            echo "<p>" . $_SESSION['mensagem'] . "</p>";
+            unset($_SESSION['mensagem']);
+        }
+    ?>
     <header>
         <h1>CineFlow</h1>
         <nav>
@@ -16,14 +31,32 @@
 
     <main>
         <section>
-            <h2>Filmes em Cartaz</h2>
-            <article>
-                <ul>
-                    <li><a href="#">Os Vingadores</a></li>
-                    <li><a href="#">Avatar</a></li>
-                    <li><a href="#">Os Três Reis</a></li>
-                </ul>
-            </article>
+            <?php if (count($filmes) > 0): ?>
+                <table border="1" cellpadding="5" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Título</th>
+                            <th>Descrição</th>
+                            <th>Duração</th>
+                            <th>Valor Ingresso</th>
+                            <th>Qtd. Ingressos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($filmes as $filme): ?>
+                            <tr>
+                                <td><?= htmlspecialchars($filme['titulo'])?></td>
+                                <td><?= htmlspecialchars($filme['descricao']) ?></td>
+                                <td><?= $filme['duracao'] ?> min</td>
+                                <td>R$ <?= number_format($filme['valor_ingresso'], 2, ',', '.') ?></td>
+                                <td><?= $filme['qtd_ingresso'] ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+                <?php else: ?>
+                    <p>Nenhum filme cadastrado.</p>
+                <?php endif; ?>
         </section>
     </main>
 
