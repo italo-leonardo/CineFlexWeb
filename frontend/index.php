@@ -29,7 +29,7 @@ $filmes = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <main>
         <!-- Se for admin, pode cadastrar -->
         <?php if (isset($_SESSION['tipo']) && $_SESSION['tipo'] === 'admin'): ?>
-            <p><a href="cadastrar_filme.php">Cadastrar Novo Filme</a></p>
+            <p><a href="cadastra_filmes.php">Cadastrar Novo Filme</a></p>
         <?php endif; ?>
 
         <section>

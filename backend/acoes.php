@@ -22,7 +22,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 
     if ($stmt->execute()) {
         $_SESSION['mensagem'] = "Filmes Cadastrado com Sucesso!";
-        header("Location: ../frontend/index.phpindex.php");
+        header("Location: ../frontend/index.php");
         exit;
     } else {
         $_SESSION['mensagem'] = "Erro ao Cadastra Filme.";
