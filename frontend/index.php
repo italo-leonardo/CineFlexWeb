@@ -66,7 +66,7 @@ $filmes = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                     </td>
                                 <?php elseif (isset($_SESSION['tipo']) && $_SESSION['tipo'] === 'cliente'): ?>
                                     <td>
-                                        <a href="comprar_ingresso.php?id=<?= $filme['id'] ?>">Comprar</a>
+                                        <a href="..//backend/comprar_ingresso.php?id=<?= $filme['id'] ?>">Comprar</a>
                                     </td>
                                 <?php endif; ?>
                             </tr>
